@@ -12,6 +12,9 @@ enable_testing()
 
 project(sgct VERSION 3.0.0)
 
+set(CMAKE_CXX_STANDARD 20)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+
 option(BUILD_SHARED_LIBS "Build shared libraries" OFF)
 set_property(GLOBAL PROPERTY USE_FOLDERS ON)
 
