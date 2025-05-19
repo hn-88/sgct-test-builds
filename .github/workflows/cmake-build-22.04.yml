@@ -18,7 +18,9 @@ jobs:
     runs-on: ubuntu-22.04
 
     steps:
-    - uses: actions/checkout@v4    
+    - uses: actions/checkout@v4
+      with:
+        submodules: 'recursive'
     
     - name: Install dependencies
       # https://docs.openspaceproject.com/releases-v0.20/contribute/development/compiling/ubuntu.html
