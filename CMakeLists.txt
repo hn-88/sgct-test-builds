@@ -15,6 +15,10 @@ project(sgct VERSION 3.0.0)
 option(BUILD_SHARED_LIBS "Build shared libraries" OFF)
 set_property(GLOBAL PROPERTY USE_FOLDERS ON)
 
+function(add_submodule name)
+  add_subdirectory(${name})
+endfunction()
+
 
 include(support/cmake/register_package.cmake)
 set(CMAKE_FIND_PACKAGE_PREFER_CONFIG ON)
