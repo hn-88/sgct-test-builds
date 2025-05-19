@@ -185,6 +185,7 @@ find_package(scn REQUIRED)
 find_package(Stb REQUIRED)
 find_package(tinyxml2 REQUIRED)
 find_package(ZLIB REQUIRED)
+find_package(fmt REQUIRED)
 
 if (SGCT_TRACY_SUPPORT)
   find_package(Threads REQUIRED) # Needed by Tracy
@@ -243,7 +244,7 @@ elseif (APPLE)
   find_library(COCOA_LIBRARY Cocoa REQUIRED)
   find_library(IOKIT_LIBRARY IOKit REQUIRED)
   find_library(COREVIDEO_LIBRARY CoreVideo REQUIRED)
-  target_link_libraries(sgct PRIVATE ${COCOA_LIBRARY} ${IOKIT_LIBRARY} ${COREVIDEO_LIBRARY})
+  target_link_libraries(sgct PRIVATE fmt::fmt ${COCOA_LIBRARY} ${IOKIT_LIBRARY} ${COREVIDEO_LIBRARY})
 else () # Linux
   find_package(X11 REQUIRED)
   find_package(Threads REQUIRED)
