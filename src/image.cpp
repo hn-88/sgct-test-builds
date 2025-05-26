@@ -80,7 +80,7 @@ void Image::load(const std::filesystem::path& filename) {
     _data = stbi_load(name.c_str(), &_size.x, &_size.y, &_nChannels, 0);
     if (_data == nullptr) {
         throw Err(
-            9001, std::format("Could not open file '{}' for loading image", filename)
+            9001, sgct::format("Could not open file '{}' for loading image", filename)
         );
     }
     _bytesPerChannel = 1;
@@ -120,7 +120,7 @@ void Image::save(const std::filesystem::path& filename) {
     }
 
     if (_bytesPerChannel > 2) {
-        throw Err(9007, std::format("Cannot save {} bit", _bytesPerChannel * 8));
+        throw Err(9007, sgct::format("Cannot save {} bit", _bytesPerChannel * 8));
     }
 
     const double t0 = time();
@@ -128,7 +128,7 @@ void Image::save(const std::filesystem::path& filename) {
     std::string f = filename.string();
     FILE* fp = fopen(f.c_str(), "wb");
     if (fp == nullptr) {
-        throw Err(9008, std::format("Cannot create PNG file '{}'", filename));
+        throw Err(9008, sgct::format("Cannot create PNG file '{}'", filename));
     }
 
     // initialize stuff
@@ -213,7 +213,7 @@ void Image::save(const std::filesystem::path& filename) {
     fclose(fp);
 
     const double t = (time() - t0) * 1000.0;
-    Log::Debug(std::format("'{}' was saved successfully ({:.2f} ms)", filename, t));
+    Log::Debug(sgct::format("'{}' was saved successfully ({:.2f} ms)", filename, t));
 }
 
 unsigned char* Image::data() {
@@ -255,7 +255,7 @@ void Image::allocateOrResizeData() {
     if (dataSize == 0) {
         throw Err(
             9012,
-            std::format(
+            sgct::format(
                 "Invalid image size {}x{} {} channels",
                 _size.x, _size.y, _nChannels
             )
@@ -273,7 +273,7 @@ void Image::allocateOrResizeData() {
         _data = new unsigned char[dataSize];
         _dataSize = dataSize;
 
-        Log::Debug(std::format(
+        Log::Debug(sgct::format(
             "Allocated {} bytes for image data ({:.2f} ms)",
             _dataSize, (time() - t0) * 1000.0
         ));

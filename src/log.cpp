@@ -64,10 +64,10 @@ void Log::printv(Level level, std::string message) {
         timeInfoPtr = localtime(&now);
         strftime(timeBuffer.data(), TimeBufferSize, "%X", timeInfoPtr);
 
-        message = std::format("{} | {}", timeBuffer.data(), message);
+        message = sgct::format("{} | {}", timeBuffer.data(), message);
     }
     if (_showLevel) {
-        message = std::format("({}) {}", levelToString(level), message);
+        message = sgct::format("({}) {}", levelToString(level), message);
     }
 
     if (_logToConsole) {
