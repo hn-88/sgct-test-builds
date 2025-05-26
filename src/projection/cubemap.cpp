@@ -13,6 +13,7 @@
 #include <sgct/offscreenbuffer.h>
 #include <sgct/opengl.h>
 #include <sgct/profiling.h>
+#include <sgct/format_compat.h>
 #include <glm/gtc/matrix_transform.hpp>
 
 #ifdef SGCT_HAS_SPOUT
@@ -23,7 +24,6 @@
 #define NOMINMAX
 #endif // NOMINMAX
 #include <SpoutLibrary.h>
-#include <sgct/format_compat.h>
 #endif // SGCT_HAS_SPOUT
 
 namespace {
