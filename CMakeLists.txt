@@ -12,8 +12,6 @@ enable_testing()
 
 project(sgct VERSION 3.0.0)
 
-include_directories(${CMAKE_SOURCE_DIR}/include/sgct)
-
 set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
