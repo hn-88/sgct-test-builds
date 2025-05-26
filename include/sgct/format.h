@@ -14,6 +14,17 @@
 #if defined(__cpp_lib_format) && __cpp_lib_format >= 201907L
     #include <format>
     // If you need a formatter for std::filesystem::path in std::format, you can add it here if not provided by your standard library.
+
+    template <>
+    struct std::formatter<std::filesystem::path> {
+        constexpr auto parse(std::format_parse_context& ctx) {
+            return ctx.begin();
+        }
+
+        auto format(const std::filesystem::path& path, std::format_context& ctx) const {
+            return std::format_to(ctx.out(), "{}", path.string());
+        }
+    };
 #else
     #include <fmt/format.h>
 
