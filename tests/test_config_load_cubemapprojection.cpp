@@ -13,7 +13,7 @@
 #include <sgct/math.h>
 #include <numeric>
 #include "schema.h"
-#include "format_compat.h"
+#include <sgct/format_compat.h>
 
 using namespace sgct;
 using namespace sgct::config;

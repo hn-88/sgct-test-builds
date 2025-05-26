@@ -20,7 +20,7 @@
 #define GLM_ENABLE_EXPERIMENTAL
 #include <glm/gtx/euler_angles.hpp>
 #include <fstream>
-#include "format_compat.h"
+#include <sgct/format_compat.h>
 
 #define Error(code, msg) sgct::Error(sgct::Error::Component::SCISS, code, msg)
 

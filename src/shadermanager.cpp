@@ -13,7 +13,7 @@
 #include <sgct/log.h>
 #include <sgct/opengl.h>
 #include <algorithm>
-#include "format_compat.h"
+#include <sgct/format_compat.h>
 
 #define Error(code, msg) Error(Error::Component::Shader, code, msg)
 

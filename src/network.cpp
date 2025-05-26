@@ -42,7 +42,7 @@
 #include <sgct/shareddata.h>
 #include <algorithm>
 #include <cstring>
-#include "format_compat.h"
+#include <sgct/format_compat.h>
 
 #define Err(code, msg) sgct::Error(sgct::Error::Component::Network, code, msg)
 

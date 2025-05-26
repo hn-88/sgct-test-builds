@@ -19,7 +19,7 @@
 #include <algorithm>
 #include <array>
 #include <cmath>
-#include "format_compat.h"
+#include <sgct/format_compat.h>
 
 namespace sgct {
 

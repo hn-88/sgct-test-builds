@@ -12,7 +12,7 @@
 #include <sgct/format.h>
 #include <sgct/log.h>
 #include <sgct/opengl.h>
-#include "format_compat.h"
+#include <sgct/format_compat.h>
 
 #define Err(code, msg) Error(Error::Component::Shader, code, msg)
 

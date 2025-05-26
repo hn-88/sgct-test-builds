@@ -34,7 +34,7 @@
 #endif // __clang__
 
 #include <freetype/ftglyph.h>
-#include "format_compat.h"
+#include <sgct/format_compat.h>
 
 #ifdef __clang__
 #pragma clang diagnostic pop

@@ -10,7 +10,7 @@
 
 #define GLFW_INCLUDE_NONE
 #include <GLFW/glfw3.h>
-#include "format_compat.h"
+#include <sgct/format_compat.h>
 
 namespace {
     const char* joyStick1Name = nullptr;

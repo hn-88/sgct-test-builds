@@ -16,7 +16,7 @@
 #include <glm/gtc/quaternion.hpp>
 #include <glm/gtc/type_ptr.hpp>
 #include <algorithm>
-#include "format_compat.h"
+#include <sgct/format_compat.h>
 
 namespace sgct {
 

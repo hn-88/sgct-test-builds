@@ -11,7 +11,7 @@
 #include <sgct/opengl.h>
 #include <glm/glm.hpp>
 #include <glm/gtc/type_ptr.hpp>
-#include "format_compat.h"
+#include <sgct/format_compat.h>
 
 namespace {
     std::unique_ptr<std::thread> connectionThread;

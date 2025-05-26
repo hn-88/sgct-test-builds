@@ -14,7 +14,7 @@
 #include <filesystem>
 #include <numeric>
 #include <thread>
-#include "format_compat.h"
+#include <sgct/format_compat.h>
 
 namespace {
     struct {

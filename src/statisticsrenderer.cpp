@@ -18,7 +18,7 @@
 #include <glm/gtc/type_ptr.hpp>
 #include <glm/gtc/matrix_transform.hpp>
 #include <algorithm>
-#include "format_compat.h"
+#include <sgct/format_compat.h>
 
 namespace {
     // Line parameters

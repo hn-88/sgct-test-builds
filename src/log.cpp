@@ -21,7 +21,7 @@
 #define NOMINMAX
 #define VC_EXTRALEAN
 #include <Windows.h>
-#include "format_compat.h"
+#include <sgct/format_compat.h>
 #endif // WIN32
 
 namespace {

@@ -23,7 +23,7 @@
 #define NOMINMAX
 #endif // NOMINMAX
 #include <SpoutLibrary.h>
-#include "format_compat.h"
+#include <sgct/format_compat.h>
 #endif // SGCT_HAS_SPOUT
 
 namespace {

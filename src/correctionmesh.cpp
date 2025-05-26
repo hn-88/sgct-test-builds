@@ -28,7 +28,7 @@
 #include <algorithm>
 #include <fstream>
 #include <iomanip>
-#include "format_compat.h"
+#include <sgct/format_compat.h>
 
 #define Error(c, msg) sgct::Error(sgct::Error::Component::CorrectionMesh, c, msg)
 
