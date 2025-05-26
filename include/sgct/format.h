@@ -16,26 +16,26 @@
     // If you need a formatter for std::filesystem::path in sgct::format, you can add it here if not provided by your standard library.
 
     template <>
-    struct sgct::formatter<std::filesystem::path> {
-        constexpr auto parse(sgct::format_parse_context& ctx) {
+    struct std::formatter<std::filesystem::path> {
+        constexpr auto parse(std::format_parse_context& ctx) {
             return ctx.begin();
         }
 
-        auto format(const std::filesystem::path& path, sgct::format_context& ctx) const {
-            return sgct::format_to(ctx.out(), "{}", path.string());
+        auto format(const std::filesystem::path& path, std::format_context& ctx) const {
+            return std::format_to(ctx.out(), "{}", path.string());
         }
     };
 #else
     #include <fmt/format.h>
 
     template <>
-    struct sgct::formatter<std::filesystem::path> {
-        constexpr auto parse(sgct::format_parse_context& ctx) {
+    struct fmt::formatter<std::filesystem::path> {
+        constexpr auto parse(fmt::format_parse_context& ctx) {
             return ctx.begin();
         }
 
-        auto format(const std::filesystem::path& path, sgct::format_context& ctx) const {
-            return sgct::format_to(ctx.out(), "{}", path.string());
+        auto format(const std::filesystem::path& path, fmt::format_context& ctx) const {
+            return fmt::format_to(ctx.out(), "{}", path.string());
         }
     };
 #endif // ifndef __clang__
