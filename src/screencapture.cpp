@@ -199,7 +199,7 @@ std::string ScreenCapture::createFilename(uint64_t frameNumber) {
 
     std::array<char, 6> Buffer = {};
     std::fill(Buffer.begin(), Buffer.end(), '\0');
-    sgct::format_to_n(Buffer.data(), Buffer.size(), "{:06}", frameNumber);
+    sgctcompat::format_to_n(Buffer.data(), Buffer.size(), "{:06}", frameNumber);
 
     std::filesystem::path file;
     if (!Engine::instance().settings().capture.capturePath.empty()) {
