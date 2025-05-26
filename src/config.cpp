@@ -26,6 +26,7 @@
 #include <algorithm>
 #include <cassert>
 #include <fstream>
+#include <sstream>
 #include <functional>
 #include <iterator>
 #include <numeric>
