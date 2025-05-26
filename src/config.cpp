@@ -29,6 +29,7 @@
 #include <functional>
 #include <iterator>
 #include <numeric>
+#include "format_compat.h"
 
 #define Error(code, msg) sgct::Error(sgct::Error::Component::Config, code, msg)
 

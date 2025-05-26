@@ -17,6 +17,7 @@
 #include <scn/scan.h>
 #include <algorithm>
 #include <fstream>
+#include "format_compat.h"
 
 namespace sgct::correction {
 

@@ -12,6 +12,7 @@
 #define GLFW_INCLUDE_NONE
 #include <GLFW/glfw3.h>
 #include <fstream>
+#include "format_compat.h"
 
 namespace {
     std::unique_ptr<std::thread> loadThread;

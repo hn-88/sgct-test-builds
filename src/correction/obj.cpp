@@ -15,6 +15,7 @@
 #include <sgct/profiling.h>
 #include <cassert>
 #include <fstream>
+#include "format_compat.h"
 
 namespace {
     struct Position {

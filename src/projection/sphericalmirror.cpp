@@ -20,6 +20,7 @@
 #include <algorithm>
 #include <glm/glm.hpp>
 #include <glm/gtc/type_ptr.hpp>
+#include "format_compat.h"
 
 namespace {
     constexpr std::string_view SphericalProjectionVert = R"(

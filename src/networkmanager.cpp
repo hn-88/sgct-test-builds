@@ -27,6 +27,7 @@
 #include <algorithm>
 #include <cstring>
 #include <numeric>
+#include "format_compat.h"
 
 #ifdef WIN32
     #include <ws2tcpip.h>

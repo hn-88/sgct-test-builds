@@ -33,6 +33,7 @@
 #include <glm/gtc/type_ptr.hpp>
 #include <glm/gtx/euler_angles.hpp>
 #include <algorithm>
+#include "format_compat.h"
 
 namespace {
     struct VRPNPointer {

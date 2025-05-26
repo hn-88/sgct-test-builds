@@ -20,6 +20,7 @@
 #include <glm/gtc/quaternion.hpp>
 #include <glm/gtc/type_ptr.hpp>
 #include <fstream>
+#include "format_compat.h"
 
 namespace {
     struct Data {

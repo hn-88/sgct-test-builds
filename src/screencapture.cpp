@@ -18,6 +18,7 @@
 #include <sgct/window.h>
 #include <cstring>
 #include <string>
+#include "format_compat.h"
 
 namespace sgct {
 

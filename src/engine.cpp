@@ -41,6 +41,7 @@
 
 #ifdef SGCT_HAS_NDI
 #include <Processing.NDI.Lib.h>
+#include "format_compat.h"
 #endif // SGCT_HAS_NDI
 
 #define Err(code, msg) Error(Error::Component::Engine, code, msg)

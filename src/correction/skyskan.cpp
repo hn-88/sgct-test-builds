@@ -22,6 +22,7 @@
 #include <scn/scan.h>
 #include <fstream>
 #include <optional>
+#include "format_compat.h"
 
 #define Error(code, msg) sgct::Error(sgct::Error::Component::SkySkan, code, msg)
 

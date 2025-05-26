@@ -18,6 +18,7 @@
 #include <glm/glm.hpp>
 #include <scn/scan.h>
 #include <fstream>
+#include "format_compat.h"
 
 namespace sgct::correction {
 

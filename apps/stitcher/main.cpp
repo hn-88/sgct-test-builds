@@ -13,6 +13,7 @@
 #include <sgct/user.h>
 #include <cstring>
 #include <format>
+#include "format_compat.h"
 
 namespace {
     enum class Rotation { Deg0 = 0, Deg90, Deg180, Deg270 };

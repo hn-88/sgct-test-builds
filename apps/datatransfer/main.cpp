@@ -16,6 +16,7 @@
 #include <algorithm>
 #include <fstream>
 #include <memory>
+#include "format_compat.h"
 
 namespace {
     std::unique_ptr<std::thread> loadThread;

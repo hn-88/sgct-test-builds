@@ -47,6 +47,7 @@ namespace {
 namespace {
 #define STB_IMAGE_IMPLEMENTATION
 #include <stb_image.h>
+#include "format_compat.h"
 } // namespace
 
 #ifdef __clang__

@@ -17,6 +17,7 @@
 #define NOMINMAX
 #endif
 #include <SpoutLibrary.h>
+#include "format_compat.h"
 
 namespace {
     struct {

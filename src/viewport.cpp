@@ -24,6 +24,7 @@
 #include <array>
 #include <optional>
 #include <variant>
+#include "format_compat.h"
 
 namespace {
     // Helper structs for the visitor pattern of the std::variant on projections

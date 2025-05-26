@@ -13,6 +13,7 @@
 #include <sgct/log.h>
 #include <sgct/opengl.h>
 #include <algorithm>
+#include "format_compat.h"
 
 namespace {
     unsigned int uploadImage(const sgct::Image& img, bool interpolate, int mipmap,

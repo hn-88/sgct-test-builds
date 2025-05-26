@@ -17,6 +17,7 @@
 #include <sgct/viewport.h>
 #include <glm/glm.hpp>
 #include <sstream>
+#include "format_compat.h"
 
 #define Error(code, msg) Error(Error::Component::SimCAD, code, msg)
 

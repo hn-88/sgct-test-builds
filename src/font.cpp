@@ -27,6 +27,7 @@
 
 #include <array>
 #include <optional>
+#include "format_compat.h"
 
 namespace {
     struct GlyphData {
