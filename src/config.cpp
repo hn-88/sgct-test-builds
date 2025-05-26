@@ -95,7 +95,7 @@ void simplifyIpAddress(std::string& address) {
     }
 
     // Reassemble the IP address
-    address = sgct::format("{}.{}.{}.{}", tokens[0], tokens[1], tokens[2], tokens[3]);
+    address = sgctcompat::format("{}.{}.{}.{}", tokens[0], tokens[1], tokens[2], tokens[3]);
 }
 
 void validateUser(const User& u) {
@@ -294,7 +294,7 @@ void validateNode(const Node& n) {
         if (std::find(usedIds.begin(), usedIds.end(), win.id) != usedIds.end()) {
             throw Error(
                 1107,
-                sgct::format(
+                sgctcompat::format(
                     "Window id must be non-negative and unique. {} used multiple times",
                     win.id
                 )
@@ -313,7 +313,7 @@ void validateNode(const Node& n) {
             if (it == n.windows.cend()) {
                 throw Error(
                     1109,
-                    sgct::format(
+                    sgctcompat::format(
                         "Tried to configure window {} to be blitted from window {}, but "
                         "no such window was specified", win.id, *win.blitWindowId
                     )
@@ -322,7 +322,7 @@ void validateNode(const Node& n) {
             if (win.id == *win.blitWindowId) {
                 throw Error(
                     1110,
-                    sgct::format(
+                    sgctcompat::format(
                         "Window {} tried to blit from itself, which cannot work", win.id
                     )
                 );
@@ -454,7 +454,7 @@ bool GeneratorVersion::versionCheck(GeneratorVersion check) const {
 }
 
 std::string GeneratorVersion::versionString() const {
-    return sgct::format("{} {}.{}", name, major, minor);
+    return sgctcompat::format("{} {}.{}", name, major, minor);
 }
 
 } // namespace sgct::config
@@ -480,7 +480,7 @@ namespace {
         if (t == "top_bottom") { return M::TopBottom; }
         if (t == "top_bottom_inverted") { return M::TopBottomInverted; }
 
-        throw Err(6085, sgct::format("Unknown stereo mode {}", t));
+        throw Err(6085, sgctcompat::format("Unknown stereo mode {}", t));
     }
 
     std::string_view toString(sgct::config::Window::StereoMode mode) {
@@ -528,7 +528,7 @@ namespace {
         if (type == "16ui") { return sgct::config::Window::ColorBitDepth::Depth16UInt; }
         if (type == "32ui") { return sgct::config::Window::ColorBitDepth::Depth32UInt; }
 
-        throw Err(6086, sgct::format("Unknown color bit depth {}", type));
+        throw Err(6086, sgctcompat::format("Unknown color bit depth {}", type));
     }
 
     int cubeMapResolutionForQuality(std::string_view quality) {
@@ -543,7 +543,7 @@ namespace {
         if (quality == "32k" || quality == "32768") { return 32768; }
         if (quality == "64k" || quality == "65536") { return 65536; }
 
-        throw Err(6087, sgct::format("Unknown resolution {} for cube map", quality));
+        throw Err(6087, sgctcompat::format("Unknown resolution {} for cube map", quality));
     }
 
     sgct::config::Viewport::Eye parseEye(std::string_view eye) {
@@ -566,7 +566,7 @@ namespace {
     std::string stringifyJsonFile(const std::filesystem::path& filename) {
         std::ifstream myfile = std::ifstream(filename);
         if (myfile.fail()) {
-            throw Err(6082, sgct::format("Failed to open '{}'", filename));
+            throw Err(6082, sgctcompat::format("Failed to open '{}'", filename));
         }
         std::stringstream buffer;
         buffer << myfile.rdbuf();
@@ -599,7 +599,7 @@ namespace {
                 res = T();
             }
             else {
-                throw std::runtime_error(sgct::format(
+                throw std::runtime_error(sgctcompat::format(
                     "Could not find required key '{}'", key)
                 );
             }
@@ -834,7 +834,7 @@ static void from_json(const nlohmann::json& j, Settings& s) {
             s.bufferFloatPrecision = Settings::BufferFloatPrecision::Float32Bit;
         }
         else {
-            throw Err(6050, sgct::format("Wrong buffer precision value {}", precision));
+            throw Err(6050, sgctcompat::format("Wrong buffer precision value {}", precision));
         }
     }
 
@@ -1496,7 +1496,7 @@ static void from_json(const nlohmann::json& j, Viewport& v) {
                 v.projection = it->get<TextureMappedProjection>();
             }
             else {
-                throw Err(6089, sgct::format("Unknown projection type '{}'", type));
+                throw Err(6089, sgctcompat::format("Unknown projection type '{}'", type));
             }
         }
     }
@@ -2020,7 +2020,7 @@ config::Cluster readConfig(const std::filesystem::path& filename) {
     if (!std::filesystem::exists(name)) {
         throw Err(
             6081,
-            sgct::format("Could not find configuration file: {}", name)
+            sgctcompat::format("Could not find configuration file: {}", name)
         );
     }
 
@@ -2126,7 +2126,7 @@ std::string validateConfigAgainstSchema(std::string_view configuration,
     const json_validator validator = json_validator(
         schemaInput,
         [&schemaDir](const json_uri& id, json& value) {
-            std::string loadPath = sgct::format("{}/{}", schemaDir, id.to_string());
+            std::string loadPath = sgctcompat::format("{}/{}", schemaDir, id.to_string());
             const size_t lbIndex = loadPath.find('#');
             if (lbIndex != std::string::npos) {
                 loadPath = loadPath.substr(0, lbIndex);
@@ -2137,14 +2137,14 @@ std::string validateConfigAgainstSchema(std::string_view configuration,
                 loadPath = loadPath.substr(0, strEnd + 1);
             }
             if (std::filesystem::exists(loadPath)) {
-                Log::Debug(sgct::format("Loading schema file '{}'", loadPath));
+                Log::Debug(sgctcompat::format("Loading schema file '{}'", loadPath));
                 const std::string newSchema = stringifyJsonFile(loadPath);
                 value = json::parse(newSchema);
             }
             else {
                 throw Err(
                     6081,
-                    sgct::format("Could not find schema file to load: {}", loadPath)
+                    sgctcompat::format("Could not find schema file to load: {}", loadPath)
                 );
             }
         }

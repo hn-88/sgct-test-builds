@@ -376,7 +376,7 @@ void StatisticsRenderer::render(const Window& window, const Viewport& viewport) 
             mode,
             penPosition.x, penPosition.y + 9 * penOffset,
             vec4{ 1.f, 0.8f, 0.8f, 1.f },
-            sgct::format("Frame number: {}", Engine::instance().currentFrameNumber())
+            sgctcompat::format("Frame number: {}", Engine::instance().currentFrameNumber())
         );
         text::print(
             window,
@@ -385,7 +385,7 @@ void StatisticsRenderer::render(const Window& window, const Viewport& viewport) 
             mode,
             penPosition.x, penPosition.y + 6 * penOffset,
             ColorFrameTime,
-            sgct::format("Frame time: {} ms", _statistics.frametimes[0] * 1000.0)
+            sgctcompat::format("Frame time: {} ms", _statistics.frametimes[0] * 1000.0)
         );
         text::print(
             window,
@@ -394,7 +394,7 @@ void StatisticsRenderer::render(const Window& window, const Viewport& viewport) 
             mode,
             penPosition.x, penPosition.y + 5 * penOffset,
             ColorDrawTime,
-            sgct::format("Draw time: {} ms", _statistics.drawTimes[0] * 1000.0)
+            sgctcompat::format("Draw time: {} ms", _statistics.drawTimes[0] * 1000.0)
         );
         text::print(
             window,
@@ -403,7 +403,7 @@ void StatisticsRenderer::render(const Window& window, const Viewport& viewport) 
             mode,
             penPosition.x, penPosition.y + 4 * penOffset,
             ColorSyncTime,
-            sgct::format("Sync time: {} ms", _statistics.syncTimes[0] * 1000.0)
+            sgctcompat::format("Sync time: {} ms", _statistics.syncTimes[0] * 1000.0)
         );
         text::print(
             window,
@@ -412,7 +412,7 @@ void StatisticsRenderer::render(const Window& window, const Viewport& viewport) 
             mode,
             penPosition.x, penPosition.y + 3 * penOffset,
             ColorLoopTimeMin,
-            sgct::format("Min Loop time: {} ms", _statistics.loopTimeMin[0] * 1000.0)
+            sgctcompat::format("Min Loop time: {} ms", _statistics.loopTimeMin[0] * 1000.0)
         );
         text::print(
             window,
@@ -421,7 +421,7 @@ void StatisticsRenderer::render(const Window& window, const Viewport& viewport) 
             mode,
             penPosition.x, penPosition.y + 2 * penOffset,
             ColorLoopTimeMax,
-            sgct::format("Max Loop time: {} ms", _statistics.loopTimeMax[0] * 1000.0)
+            sgctcompat::format("Max Loop time: {} ms", _statistics.loopTimeMax[0] * 1000.0)
         );
 #endif // SGCT_HAS_TEXT
     }
@@ -488,7 +488,7 @@ void StatisticsRenderer::render(const Window& window, const Viewport& viewport) 
             mode,
             penPosition.x, penPosition.y + penOffset,
             vec4{ 0.8f, 0.8f, 0.8f, 1.f },
-            sgct::format(
+            sgctcompat::format(
                 "Histogram Scale (sync time): {:.0f} ms",
                 HistogramScaleSync * 1000.0
             )
@@ -500,7 +500,7 @@ void StatisticsRenderer::render(const Window& window, const Viewport& viewport) 
             mode,
             penPosition.x, penPosition.y,
             vec4{ 0.8f, 0.8f, 0.8f, 1.f },
-            sgct::format(
+            sgctcompat::format(
                 "Histogram Scale (frametime, drawtime): {:.0f} ms",
                 HistogramScaleFrame * 1000.0
             )

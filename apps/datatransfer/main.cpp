@@ -195,7 +195,7 @@ void uploadTexture() {
 
     glBindTexture(GL_TEXTURE_2D, 0);
 
-    Log::Info(sgct::format(
+    Log::Info(sgctcompat::format(
         "Texture id {} loaded ({}x{}x{})",
         tex, transImg->size().x, transImg->size().y, transImg->channels()
     ));
@@ -363,7 +363,7 @@ void keyboard(Key key, Modifier, Action action, int, Window*) {
 }
 
 void dataTransferDecoder(void* data, int length, int packageId, int clientIndex) {
-    Log::Info(sgct::format(
+    Log::Info(sgctcompat::format(
         "Decoding {} bytes in transfer id: {} on node {}", length, packageId, clientIndex
     ));
 
@@ -375,13 +375,13 @@ void dataTransferDecoder(void* data, int length, int packageId, int clientIndex)
 }
 
 void dataTransferStatus(bool connected, int clientIndex) {
-    Log::Info(sgct::format(
+    Log::Info(sgctcompat::format(
         "Transfer node {} is {}", clientIndex, connected ? "connected" : "disconnected"
     ));
 }
 
 void dataTransferAcknowledge(int packageId, int clientIndex) {
-    Log::Info(sgct::format(
+    Log::Info(sgctcompat::format(
         "Transfer id: {} is completed on node {}", packageId, clientIndex
     ));
 
@@ -392,7 +392,7 @@ void dataTransferAcknowledge(int packageId, int clientIndex) {
             clientsUploadDone = true;
             counter = 0;
 
-            Log::Info(sgct::format(
+            Log::Info(sgctcompat::format(
                 "Time to distribute and upload textures on cluster: {} ms",
                 (time() - sendTimer) * 1000.0
             ));

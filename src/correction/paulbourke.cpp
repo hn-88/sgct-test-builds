@@ -29,13 +29,13 @@ Buffer generatePaulBourkeMesh(const std::filesystem::path& path, const vec2& pos
 
     Buffer buf;
 
-    Log::Info(sgct::format("Reading Paul Bourke spherical mirror mesh from '{}'", path));
+    Log::Info(sgctcompat::format("Reading Paul Bourke spherical mirror mesh from '{}'", path));
 
     std::ifstream meshFile = std::ifstream(path);
     if (!meshFile.good()) {
         throw Error(
             Error::Component::PaulBourke, 2040,
-            sgct::format("Failed to open '{}'", path)
+            sgctcompat::format("Failed to open '{}'", path)
         );
     }
 
@@ -47,7 +47,7 @@ Buffer generatePaulBourkeMesh(const std::filesystem::path& path, const vec2& pos
         if (!r) {
             throw Error(
                 Error::Component::PaulBourke, 2041,
-                sgct::format("Error reading mapping type in file '{}'", path)
+                sgctcompat::format("Error reading mapping type in file '{}'", path)
             );
         }
     }
@@ -59,7 +59,7 @@ Buffer generatePaulBourkeMesh(const std::filesystem::path& path, const vec2& pos
         if (!r) {
             throw Error(
                 Error::Component::PaulBourke, 2042,
-                sgct::format("Invalid data in file '{}'", path)
+                sgctcompat::format("Invalid data in file '{}'", path)
             );
         }
         const auto& [valX, valY] = r->values();

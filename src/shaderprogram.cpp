@@ -29,7 +29,7 @@ namespace {
             glGetProgramInfoLog(programId, logLength, nullptr, log.data());
 
             sgct::Log::Error(
-                sgct::format("Shader '{}' linking error: {}", name, log.data())
+                sgctcompat::format("Shader '{}' linking error: {}", name, log.data())
             );
         }
         return linkStatus != 0;
@@ -53,14 +53,14 @@ namespace {
             glGetShaderiv(id, GL_INFO_LOG_LENGTH, &logLength);
 
             if (logLength == 0) {
-                sgct::Log::Error(sgct::format(
+                sgct::Log::Error(sgctcompat::format(
                     "{} compile error: Unknown error", shaderTypeName(type)
                 ));
             }
 
             std::vector<GLchar> log(logLength);
             glGetShaderInfoLog(id, logLength, nullptr, log.data());
-            sgct::Log::Error(sgct::format(
+            sgct::Log::Error(sgctcompat::format(
                 "{} compile error: {}", shaderTypeName(type), log.data()
             ));
         }
@@ -148,7 +148,7 @@ void ShaderProgram::createAndLinkProgram() {
     if (_shaders.empty()) {
         throw Err(
             7010,
-            sgct::format("No shaders have been added to the program '{}'", _name)
+            sgctcompat::format("No shaders have been added to the program '{}'", _name)
         );
     }
 
@@ -162,7 +162,7 @@ void ShaderProgram::createAndLinkProgram() {
     glLinkProgram(_programId);
     const bool isLinked = checkLinkStatus(_programId, _name);
     if (!isLinked) {
-        throw Err(7011, sgct::format("Error linking the program '{}'", _name));
+        throw Err(7011, sgctcompat::format("Error linking the program '{}'", _name));
     }
 }
 
@@ -170,7 +170,7 @@ void ShaderProgram::createProgram() {
     if (_programId > 0) {
         throw Err(
             7012,
-            sgct::format("Failed to create shader program '{}': Already created", _name)
+            sgctcompat::format("Failed to create shader program '{}': Already created", _name)
         );
     }
 
@@ -178,7 +178,7 @@ void ShaderProgram::createProgram() {
     if (_programId == 0) {
         throw Err(
             7013,
-            sgct::format("Failed to create shader program '{}': Unknown error", _name)
+            sgctcompat::format("Failed to create shader program '{}': Unknown error", _name)
         );
     }
 }

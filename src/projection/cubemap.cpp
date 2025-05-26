@@ -184,7 +184,7 @@ void CubemapProjection::render(const BaseViewport& viewport,
                 _cubemapResolution.y
             );
             if (!s) {
-                Log::Error(sgct::format(
+                Log::Error(sgctcompat::format(
                     "Error sending texture '{}' for face {}", _cubeFaces[i].texture, i
                 ));
             }
@@ -243,7 +243,7 @@ void CubemapProjection::initTextures(unsigned int internalFormat, unsigned int f
     Log::Debug("CubemapProjection initTextures");
 
     for (int i = 0; i < 6; i++) {
-        Log::Debug(sgct::format("CubemapProjection initTextures {}", i));
+        Log::Debug(sgctcompat::format("CubemapProjection initTextures {}", i));
         if (!_cubeFaces[i].enabled) {
             continue;
         }
@@ -282,14 +282,14 @@ void CubemapProjection::initTextures(unsigned int internalFormat, unsigned int f
                 const std::string fullName =
                     _spoutName.empty() ?
                     CubeMapFaceName[i] :
-                    sgct::format("{}-{}", _spoutName, CubeMapFaceName[i]);
+                    sgctcompat::format("{}-{}", _spoutName, CubeMapFaceName[i]);
                 bool success = h->CreateSender(
                     fullName.c_str(),
                     _cubemapResolution.x,
                     _cubemapResolution.y
                 );
                 if (!success) {
-                    Log::Error(sgct::format(
+                    Log::Error(sgctcompat::format(
                         "Error creating SPOUT handle for {}", CubeMapFaceName[i]
                     ));
                 }
@@ -303,7 +303,7 @@ void CubemapProjection::initTextures(unsigned int internalFormat, unsigned int f
                 "Right", "zLeft", "Bottom", "Top", "Left", "zRight"
             };
 
-            _cubeFaces[i].ndi.name = sgct::format("{}-{}", _ndiName, CubeMapFaceName[i]);
+            _cubeFaces[i].ndi.name = sgctcompat::format("{}-{}", _ndiName, CubeMapFaceName[i]);
 
             NDIlib_send_create_t createDesc;
             createDesc.p_ndi_name = _cubeFaces[i].ndi.name.c_str();

@@ -98,7 +98,7 @@ bool bindSpout() {
     }
     const bool creationSuccess = receiver->CreateReceiver(name.data(), width, height);
     if (!isInitialized && creationSuccess) {
-        Log::Info(sgct::format(
+        Log::Info(sgctcompat::format(
             "Spout: Initializing {}x{} texture from '{}'", width, height, name.data()
         ));
         isInitialized = true;
@@ -193,12 +193,12 @@ void draw2D(const RenderData& data) {
         const Sender& sender = senders[i];
         std::string text;
         if (i == currentSender) {
-            text = sgct::format(
+            text = sgctcompat::format(
                 FormatSelected, i, sender.name, sender.width, sender.height
             );
         }
         else {
-            text = sgct::format(
+            text = sgctcompat::format(
                 Format, i, sender.name, sender.width, sender.height
             );
         }

@@ -192,7 +192,7 @@ void SphericalMirrorProjection::initTextures(unsigned int internalFormat,
             return;
         }
         generateMap(texture, internalFormat, format, type);
-        Log::Debug(sgct::format(
+        Log::Debug(sgctcompat::format(
             "{}x{} cube face texture (id: {}) generated",
             _cubemapResolution.x, _cubemapResolution.y, texture
         ));

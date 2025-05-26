@@ -26,13 +26,13 @@ Buffer generateDomeProjectionMesh(const std::filesystem::path& path, const vec2&
 {
     ZoneScoped;
 
-    Log::Info(sgct::format("Reading DomeProjection mesh data from '{}'", path));
+    Log::Info(sgctcompat::format("Reading DomeProjection mesh data from '{}'", path));
 
     std::ifstream meshFile = std::ifstream(path);
     if (!meshFile.good()) {
         throw Error(
             Error::Component::DomeProjection, 2010,
-            sgct::format("Failed to open '{}'", path)
+            sgctcompat::format("Failed to open '{}'", path)
         );
     }
 

@@ -142,7 +142,7 @@ bool FontManager::addFont(std::string name, std::string file) {
 
     const bool inserted = _fontPaths.insert({ name, std::move(file) }).second;
     if (!inserted) {
-        Log::Warning(sgct::format("Font with name '{}' already exists", name));
+        Log::Warning(sgctcompat::format("Font with name '{}' already exists", name));
     }
     return inserted;
 }
@@ -163,12 +163,12 @@ std::unique_ptr<Font> FontManager::createFont(const std::string& name, int heigh
     const auto it = _fontPaths.find(name);
 
     if (it == _fontPaths.end()) {
-        Log::Error(sgct::format("No font file specified for font '{}'", name));
+        Log::Error(sgctcompat::format("No font file specified for font '{}'", name));
         return nullptr;
     }
 
     if (_library == nullptr) {
-        Log::Error(sgct::format(
+        Log::Error(sgctcompat::format(
             "Freetype library is not initialized, cannot create font '{}'", name
         ));
         return nullptr;
@@ -178,19 +178,19 @@ std::unique_ptr<Font> FontManager::createFont(const std::string& name, int heigh
     const FT_Error error = FT_New_Face(_library, it->second.c_str(), 0, &face);
 
     if (error == FT_Err_Unknown_File_Format) {
-        Log::Error(sgct::format(
+        Log::Error(sgctcompat::format(
             "Unsupported file format '{}' for font '{}'", it->second, name
         ));
         return nullptr;
     }
     else if (error != 0 || face == nullptr) {
-        Log::Error(sgct::format("Font '{}' not found", it->second));
+        Log::Error(sgctcompat::format("Font '{}' not found", it->second));
         return nullptr;
     }
 
     const FT_Error charSizeErr = FT_Set_Char_Size(face, height << 6, height << 6, 96, 96);
     if (charSizeErr != 0) {
-        Log::Error(sgct::format("Could not set pixel size for font '{}'", name));
+        Log::Error(sgctcompat::format("Could not set pixel size for font '{}'", name));
         return nullptr;
     }
 

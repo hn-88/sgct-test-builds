@@ -58,7 +58,7 @@ Viewport::Viewport(const config::Viewport& viewport, const Window& parent)
         User* user = ClusterManager::instance().user(*viewport.user);
         if (!user) {
             Log::Warning(
-                sgct::format("Could not find user with name '{}'", *viewport.user)
+                sgctcompat::format("Could not find user with name '{}'", *viewport.user)
             );
         }
 

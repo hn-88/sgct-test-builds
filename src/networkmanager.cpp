@@ -181,7 +181,7 @@ NetworkManager::NetworkManager(NetworkMode nm,
 #endif // __APPLE__
     if (result != 0) {
             std::string err = std::to_string(Network::lastError());
-            throw Error(5028, sgct::format("Failed to get address info: {}", err));
+            throw Error(5028, sgctcompat::format("Failed to get address info: {}", err));
         }
     }
     std::vector<std::string> dnsNames;
@@ -215,7 +215,7 @@ NetworkManager::NetworkManager(NetworkMode nm,
 
     Log::Debug("Detected local addresses:");
     for (const std::string& address : _localAddresses) {
-        Log::Debug(sgct::format("  {}", address));
+        Log::Debug(sgctcompat::format("  {}", address));
     }
 }
 
@@ -302,7 +302,7 @@ void NetworkManager::initialize() {
             {
                 throw Error(
                     5023,
-                    sgct::format(
+                    sgctcompat::format(
                         "Port {} is already used by connection {}",
                         cm.thisNode().syncPort(), i
                     )
@@ -351,7 +351,7 @@ void NetworkManager::initialize() {
                     [](const char* data, int length) {
                         std::vector<char> d(data, data + length);
                         d.push_back('\0');
-                        Log::Info(sgct::format("[client]: {} [end]", d.data()));
+                        Log::Info(sgctcompat::format("[client]: {} [end]", d.data()));
                     }
                 );
 
@@ -380,7 +380,7 @@ void NetworkManager::initialize() {
     }
 
     Log::Debug(
-        sgct::format("Cluster sync: {}", cm.firmFrameLockSyncStatus() ? "firm" : "loose")
+        sgctcompat::format("Cluster sync: {}", cm.firmFrameLockSyncStatus() ? "firm" : "loose")
     );
 }
 
@@ -495,7 +495,7 @@ const Network& NetworkManager::syncConnection(int index) const {
 }
 
 void NetworkManager::updateConnectionStatus(Network& connection) {
-    Log::Debug(sgct::format("Updating status for connection {}", connection.id()));
+    Log::Debug(sgctcompat::format("Updating status for connection {}", connection.id()));
 
     int nConnections = 0;
     int nConnectedSync = 0;
@@ -520,13 +520,13 @@ void NetworkManager::updateConnectionStatus(Network& connection) {
         }
     }
 
-    Log::Info(sgct::format(
+    Log::Info(sgctcompat::format(
         "Number of active connections {} of {}", nConnections, totalNConnections
     ));
-    Log::Debug(sgct::format(
+    Log::Debug(sgctcompat::format(
         "Number of connected sync nodes {} of {}", nConnectedSync, totalNSyncConnections
     ));
-    Log::Debug(sgct::format(
+    Log::Debug(sgctcompat::format(
         "Number of connected data transfer nodes {} of {}",
         nConnectedDataTransfer, totalNTransferConnections
     ));
@@ -603,11 +603,11 @@ void NetworkManager::addConnection(int port, std::string address,
     ZoneScoped;
 
     if (port == 0) {
-        throw Error(5025, sgct::format("No port provided for connection to {}", address));
+        throw Error(5025, sgctcompat::format("No port provided for connection to {}", address));
     }
 
     if (address.empty()) {
-        throw Error(5026, sgct::format("Empty address for connection to {}", port));
+        throw Error(5026, sgctcompat::format("Empty address for connection to {}", port));
     }
 
     auto net = std::make_unique<Network>(
@@ -616,7 +616,7 @@ void NetworkManager::addConnection(int port, std::string address,
         _isServer,
         connectionType
     );
-    Log::Debug(sgct::format(
+    Log::Debug(sgctcompat::format(
         "Initiating connection {} at port {}", _networkConnections.size(), port
     ));
     net->setUpdateFunction([this](Network& c) { updateConnectionStatus(c); });

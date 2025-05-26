@@ -292,7 +292,7 @@ void Font::createCharacter(char c) {
         _fontFaceData[c] = std::move(*ffd);
     }
     else {
-        Log::Error(sgct::format("Error creating character {}", c));
+        Log::Error(sgctcompat::format("Error creating character {}", c));
     }
 }
 
