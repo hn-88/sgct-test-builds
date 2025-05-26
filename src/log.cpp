@@ -11,6 +11,7 @@
 #include <sgct/format.h>
 #include <sgct/networkmanager.h>
 #include <sgct/mutexes.h>
+#include <sgct/format_compat.h>
 #include <cstdarg>
 #include <fstream>
 #include <iostream>
@@ -21,7 +22,6 @@
 #define NOMINMAX
 #define VC_EXTRALEAN
 #include <Windows.h>
-#include <sgct/format_compat.h>
 #endif // WIN32
 
 namespace {
