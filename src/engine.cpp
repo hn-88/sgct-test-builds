@@ -26,6 +26,7 @@
 #endif // SGCT_HAS_VRPN
 #include <sgct/version.h>
 #include <sgct/projection/nonlinearprojection.h>
+#include <sgct/format_compat.h>
 #include <iostream>
 #include <numeric>
 #include <mutex>
@@ -41,7 +42,6 @@
 
 #ifdef SGCT_HAS_NDI
 #include <Processing.NDI.Lib.h>
-#include <sgct/format_compat.h>
 #endif // SGCT_HAS_NDI
 
 #define Err(code, msg) Error(Error::Component::Engine, code, msg)
