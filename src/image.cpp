@@ -12,6 +12,7 @@
 #include <sgct/error.h>
 #include <sgct/format.h>
 #include <sgct/log.h>
+#include <sgct/format_compat.h>
 #include <png.h>
 #include <zlib.h>
 #include <algorithm>
@@ -47,7 +48,6 @@ namespace {
 namespace {
 #define STB_IMAGE_IMPLEMENTATION
 #include <stb_image.h>
-#include <sgct/format_compat.h>
 } // namespace
 
 #ifdef __clang__
