@@ -30,8 +30,9 @@ list(APPEND CMAKE_MODULE_PATH
   ${CMAKE_BINARY_DIR}/pkg
 )
 
+# set(CMAKE_OSX_DEPLOYMENT_TARGET "10.15") - we want a more recent version
 if (APPLE)
-  set(CMAKE_OSX_DEPLOYMENT_TARGET "10.15")
+  find_package(fmt REQUIRED)  
   if (NOT CMAKE_OSX_ARCHITECTURES)
     set(CMAKE_OSX_ARCHITECTURES "x86_64")
   endif ()
