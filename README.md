@@ -4,7 +4,7 @@ and with github actions being used to generate test builds.
 
 The pull request generated from the changes made here have not been merged into sgct/sgct.
 
-Another repo is being created to try and build with 15.0.7
+Another repo is being created to try and build with 15.0.7 - https://github.com/hn-88/sgct-test-builds-v2
 
 
 -------------------------------------------------
