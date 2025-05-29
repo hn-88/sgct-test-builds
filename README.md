@@ -1,3 +1,14 @@
+This is a clone of the repository https://github.com/sgct/sgct/
+which contains code modified to build with MacOS for CLang < 15.0.0 which does not have support for `std::format`
+and with github actions being used to generate test builds. 
+
+The pull request generated from the changes made here have not been merged into sgct/sgct.
+
+Another repo is being created to try and build with 15.0.7
+
+
+-------------------------------------------------
+
 # SGCT - Simple Graphics Cluster Toolkit
 
 ![Build Status](http://dev.openspaceproject.com/buildStatus/icon?job=SGCT%2Fsgct%2Fmaster&style=flat-square)
